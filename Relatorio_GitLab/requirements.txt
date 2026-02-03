@@ -1,0 +1,6 @@
+streamlit
+pandas
+plotly_express
+datetime
+requests
+python-dateutil
