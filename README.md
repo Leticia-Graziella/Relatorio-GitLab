@@ -23,22 +23,19 @@ pip install -r requirements.txt
 
 ## Configuração
 
-Edite `utils/config.py` com as credenciais e parâmetros do projeto. O arquivo deve prover pelo menos as variáveis (nomes aproximados usados pelo projeto):
+O app lê as configurações de variáveis de ambiente (veja `src/utils/config.py`). Nunca coloque o token direto no código.
 
-- `access_token` - Token privado do GitLab com permissão para ler issues.
-- `gitlab_url` - URL base do GitLab (ex: `https://gitlab.com` ou sua instância interna).
-- `id_projeto` - ID do projeto GitLab a consultar.
+- `GITLAB_TOKEN` - Token do GitLab com permissão de leitura (`read_api`).
+- `GITLAB_URL` - URL base do GitLab (padrão: `https://gitlab.com`).
+- `GITLAB_PROJECT_ID` - ID do projeto GitLab a consultar.
 
-Exemplo mínimo :
+Exemplo (PowerShell):
 
-```python
-# utils/config.py (exemplo)
-access_token = "SEU_TOKEN_AQUI"
-gitlab_url = "https://gitlab.com"
-id_projeto = 123456
+```powershell
+$env:GITLAB_URL = "https://gitlab.seudominio.com"
+$env:GITLAB_TOKEN = "SEU_TOKEN_AQUI"
+$env:GITLAB_PROJECT_ID = "123456"
 ```
-
-Alternativa (recomendada): mantenha o token em variáveis de ambiente e modifique `utils/config.py` para lê-las com `os.environ`.
 
 ## Como executar (desenvolvimento)
 
